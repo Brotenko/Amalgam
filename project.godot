@@ -64,7 +64,8 @@ target_fps="60"
 
 [autoload]
 
-Global="*res://src/Global.gd"
+Global="*res://src/Singletons/Global.gd"
+GlobalSpells="*res://src/Singletons/Global_Spells.gd"
 
 [debug]
 
@@ -77,10 +78,11 @@ gdscript/warnings/unsafe_call_argument=true
 [display]
 
 window/size/width=800
-window/size/height=480
+window/size/height=450
+window/size/resizable=false
 window/dpi/allow_hidpi=true
 window/stretch/mode="2d"
-window/stretch/aspect="keep_height"
+window/stretch/aspect="keep"
 stretch/aspect="keep_height"
 stretch/mode="2d"
 

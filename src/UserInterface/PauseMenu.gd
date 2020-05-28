@@ -4,13 +4,13 @@ extends Control
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-onready var _stats_menu = $MenusLayer/StatsMenu
-onready var _spells_menu = $MenusLayer/SpellsMenu
-onready var _pages_menu = $MenusLayer/PagesMenu
-onready var _weapons_menu = $MenusLayer/WeaponsMenu
-onready var _materials_menu = $MenusLayer/MaterialsMenu
-onready var _crafting_menu = $MenusLayer/CraftingMenu
-onready var _system_menu = $MenusLayer/SystemMenu
+onready var _stats_menu = $StatsMenu
+onready var _spells_menu = $SpellsMenu
+onready var _pages_menu = $PagesMenu
+onready var _weapons_menu = $WeaponsMenu
+onready var _materials_menu = $MaterialsMenu
+onready var _crafting_menu = $CraftingMenu
+onready var _system_menu = $SystemMenu
 
 onready var _stats_button = $HBoxContainer/StatsButton
 onready var _spells_button = $HBoxContainer/SpellsButton

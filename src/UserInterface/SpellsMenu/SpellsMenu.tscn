@@ -1,0 +1,244 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/theme/dynamic_font_small.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/UserInterface/SpellsMenu/SpellsMenu.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://assets/art/coin/coin.png" type="Texture" id=4]
+[ext_resource path="res://assets/theme/dynamic_font_big.tres" type="DynamicFont" id=5]
+
+[node name="SpellsMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slots_Container" type="VBoxContainer" parent="."]
+anchor_left = 0.106
+anchor_top = 0.222
+anchor_right = 0.441
+anchor_bottom = 0.818
+margin_left = 0.200005
+margin_top = 0.0999985
+margin_right = 0.199982
+margin_bottom = -0.100006
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Row_1" type="HBoxContainer" parent="Slots_Container"]
+margin_right = 268.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot_1" type="TextureButton" parent="Slots_Container/Row_1"]
+margin_right = 64.0
+margin_bottom = 64.0
+focus_neighbour_left = NodePath("../../Row_4/Slot_16")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot_2" type="TextureButton" parent="Slots_Container/Row_1"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot_3" type="TextureButton" parent="Slots_Container/Row_1"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 3 )
+
+[node name="Slot_4" type="TextureButton" parent="Slots_Container/Row_1"]
+margin_left = 204.0
+margin_right = 268.0
+margin_bottom = 64.0
+focus_neighbour_right = NodePath("../../Row_2/Slot_5")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 3 )
+
+[node name="Row_2" type="HBoxContainer" parent="Slots_Container"]
+margin_top = 68.0
+margin_right = 268.0
+margin_bottom = 132.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot_5" type="TextureButton" parent="Slots_Container/Row_2"]
+margin_right = 64.0
+margin_bottom = 64.0
+focus_neighbour_left = NodePath("../../Row_1/Slot_4")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 3 )
+texture_hover = ExtResource( 4 )
+
+[node name="Slot_6" type="TextureButton" parent="Slots_Container/Row_2"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot_7" type="TextureButton" parent="Slots_Container/Row_2"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot_8" type="TextureButton" parent="Slots_Container/Row_2"]
+margin_left = 204.0
+margin_right = 268.0
+margin_bottom = 64.0
+focus_neighbour_right = NodePath("../../Row_3/Slot_9")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Row_3" type="HBoxContainer" parent="Slots_Container"]
+margin_top = 136.0
+margin_right = 268.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot_9" type="TextureButton" parent="Slots_Container/Row_3"]
+margin_right = 64.0
+margin_bottom = 64.0
+focus_neighbour_left = NodePath("../../Row_2/Slot_8")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot_10" type="TextureButton" parent="Slots_Container/Row_3"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot_11" type="TextureButton" parent="Slots_Container/Row_3"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot_12" type="TextureButton" parent="Slots_Container/Row_3"]
+margin_left = 204.0
+margin_right = 268.0
+margin_bottom = 64.0
+focus_neighbour_right = NodePath("../../Row_4/Slot_13")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Row_4" type="HBoxContainer" parent="Slots_Container"]
+margin_top = 204.0
+margin_right = 268.0
+margin_bottom = 268.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot_13" type="TextureButton" parent="Slots_Container/Row_4"]
+margin_right = 64.0
+margin_bottom = 64.0
+focus_neighbour_left = NodePath("../../Row_3/Slot_12")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 3 )
+
+[node name="Slot_14" type="TextureButton" parent="Slots_Container/Row_4"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot_15" type="TextureButton" parent="Slots_Container/Row_4"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot_16" type="TextureButton" parent="Slots_Container/Row_4"]
+margin_left = 204.0
+margin_right = 268.0
+margin_bottom = 64.0
+focus_neighbour_right = NodePath("../../Row_1/Slot_1")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 3 )
+
+[node name="DescriptionContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.54
+anchor_top = 0.187
+anchor_right = 0.875
+anchor_bottom = 0.853
+margin_top = -0.149994
+margin_right = -6.10352e-05
+margin_bottom = 0.149994
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Spell_Name" type="RichTextLabel" parent="DescriptionContainer"]
+margin_right = 267.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = true
+bbcode_text = "Spell Name"
+text = "Spell Name"
+
+[node name="Spell_Description" type="RichTextLabel" parent="DescriptionContainer"]
+margin_top = 53.0
+margin_right = 267.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "The description goes here"
+text = "The description goes here"
+[connection signal="pressed" from="Slots_Container/Row_1/Slot_1" to="." method="_signal_Handler" flags=3 binds= [ 1 ]]
+[connection signal="pressed" from="Slots_Container/Row_1/Slot_2" to="." method="_signal_Handler" binds= [ 2 ]]
+[connection signal="pressed" from="Slots_Container/Row_1/Slot_3" to="." method="_signal_Handler" binds= [ 3 ]]
+[connection signal="pressed" from="Slots_Container/Row_1/Slot_4" to="." method="_signal_Handler" binds= [ 4 ]]
+[connection signal="pressed" from="Slots_Container/Row_2/Slot_5" to="." method="_signal_Handler" binds= [ 5 ]]
+[connection signal="pressed" from="Slots_Container/Row_2/Slot_6" to="." method="_signal_Handler" binds= [ 6 ]]
+[connection signal="pressed" from="Slots_Container/Row_2/Slot_7" to="." method="_signal_Handler" binds= [ 7 ]]
+[connection signal="pressed" from="Slots_Container/Row_2/Slot_8" to="." method="_signal_Handler" binds= [ 8 ]]
+[connection signal="pressed" from="Slots_Container/Row_3/Slot_9" to="." method="_signal_Handler" binds= [ 9 ]]
+[connection signal="pressed" from="Slots_Container/Row_3/Slot_10" to="." method="_signal_Handler" binds= [ 10 ]]
+[connection signal="pressed" from="Slots_Container/Row_3/Slot_11" to="." method="_signal_Handler" binds= [ 11 ]]
+[connection signal="pressed" from="Slots_Container/Row_3/Slot_12" to="." method="_signal_Handler" binds= [ 12 ]]
+[connection signal="pressed" from="Slots_Container/Row_4/Slot_13" to="." method="_signal_Handler" binds= [ 13 ]]
+[connection signal="pressed" from="Slots_Container/Row_4/Slot_14" to="." method="_signal_Handler" binds= [ 14 ]]
+[connection signal="pressed" from="Slots_Container/Row_4/Slot_15" to="." method="_signal_Handler" binds= [ 15 ]]
+[connection signal="pressed" from="Slots_Container/Row_4/Slot_16" to="." method="_signal_Handler" binds= [ 16 ]]
