@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/art/ui/touch_button_right.png" type="Texture" id=6]
 [ext_resource path="res://assets/art/ui/touch_button_jump.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/ui/touch_button_fire.png" type="Texture" id=8]
-[ext_resource path="res://src/Actors/Gun.gd" type="Script" id=9]
+[ext_resource path="res://src/Actors/Spell_Caster.gd" type="Script" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "crouch"
@@ -205,17 +205,17 @@ position = Vector2( 0, -14 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 16
-frame = 16
+frame = 22
 
-[node name="Gun" type="Position2D" parent="Sprite"]
+[node name="Spell_Caster" type="Position2D" parent="Sprite"]
 position = Vector2( 14, 1 )
 script = ExtResource( 9 )
 
-[node name="Shoot" type="AudioStreamPlayer2D" parent="Sprite/Gun"]
+[node name="Shoot" type="AudioStreamPlayer2D" parent="Sprite/Spell_Caster"]
 position = Vector2( -30.6589, -6.13176 )
 stream = ExtResource( 4 )
 
-[node name="Cooldown" type="Timer" parent="Sprite/Gun"]
+[node name="Cooldown" type="Timer" parent="Sprite/Spell_Caster"]
 process_mode = 0
 wait_time = 0.3
 one_shot = true
@@ -236,7 +236,7 @@ anims/standing_weapon_ready = SubResource( 10 )
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( 0, -28 )
 current = true
-zoom = Vector2( 0.5, 0.5 )
+zoom = Vector2( 0.6, 0.6 )
 process_mode = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

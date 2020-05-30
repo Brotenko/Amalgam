@@ -1,7 +1,7 @@
 extends Node
 
 
-const Spell = preload("res://src/Singletons/Spell.gd")
+const Spell = preload("res://src/Spells/Spell.gd")
 
 var spell_1 = Spell.new()
 var spell_2 = Spell.new()

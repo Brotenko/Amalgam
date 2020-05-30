@@ -25,10 +25,14 @@ onready var spell_name = $DescriptionContainer/Spell_Name
 onready var spell_description = $DescriptionContainer/Spell_Description
 
 
-var _empty_slot = load("res://icon.png")
-var _focused_slot = load("res://icon.png")
-var _hover_slot = load("res://icon.png")
-var _pressed_slot = load("res://icon.png")
+const _spells_menu_spells = preload("res://src/Spells/SpellsMenu_Spells.gd")
+var Spells = _spells_menu_spells.new()
+
+
+const _empty_slot = preload("res://icon.png")
+const _focused_slot = preload("res://icon.png")
+const _hover_slot = preload("res://icon.png")
+const _pressed_slot = preload("res://icon.png")
 
 
 func _ready():
@@ -53,15 +57,21 @@ func _setup_Slots():
 
 
 func _signal_Handler(_signal):
+	var signaled_spell
+	
 	match _signal:
 		1:
-			spell_name.set_bbcode("[tornado radius=5 freq=5]Thamz smells[/tornado]")
-			spell_description.set_bbcode("[shake rate=20 level=10]Oh lawd he do be smelling[/shake]")
-			GlobalSpells.spell_1.spell_name = "Hi"
-			print(GlobalSpells.spell_1.spell_name)
+			signaled_spell = Spells.spell_1
+			#spell_name.set_bbcode("[tornado radius=5 freq=5]Thamz smells[/tornado]")
+			#spell_description.set_bbcode("[shake rate=20 level=10]Oh lawd he do be smelling[/shake]")
+			signaled_spell.set_all_spell_parameters(["Ultima",1000,10000,1000,0,0,150,null,null,null,null,null,50,500,10,2,1,SpellEnums.Directions.UP,1,null,null,SpellEnums.DamageTypes.ULTIMA,null,SpellEnums.Targets.ENEMY,null])
+			#spell_description.set_bbcode(Spells.spell_1.get_description())
+			#Spells.spell_1.spell_name = "Hi"
+			#print(Spells.spell_1.spell_name)
 		2:
-			GlobalSpells.spell_2.spell_name = "Hi2"
-			print(GlobalSpells.spell_2.spell_name)
+			signaled_spell = Spells.spell_2
+			#Spells.spell_2.spell_name = "Hi2"
+			#print(Spells.spell_2.spell_name)
 		3:
 			print(_signal)
 		4:
@@ -90,3 +100,9 @@ func _signal_Handler(_signal):
 			print(_signal)
 		16:
 			print(_signal)
+	
+	spell_name.set_bbcode(signaled_spell.get_name())
+	spell_description.set_bbcode(signaled_spell.get_description())
+	#print(Spells.spell_1.spell_name)
+	#print(Spells.spell_1.spell_description)
+

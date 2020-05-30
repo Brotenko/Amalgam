@@ -1,4 +1,4 @@
-class_name Gun
+class_name Spell_Caster
 extends Position2D
 # Represents a weapon that spawns and shoots bullets.
 # The Cooldown timer controls the cooldown duration between shots.
@@ -11,7 +11,7 @@ onready var timer = $Cooldown
 
 export var attack_range = 7;
 export var damage = 1;
-export var attack_spray = 360;
+export var attack_spray = 250;
 export var gravity_drag = 0;
 
 func shoot(direction = 1):
@@ -23,7 +23,8 @@ func shoot(direction = 1):
 		return false
 		
 	rng.randomize()
-	var spray = rng.randi_range(-attack_spray/Global.numberOfCoins, attack_spray/Global.numberOfCoins)
+	#var spray = rng.randi_range(-attack_spray/Global.numberOfCoins, attack_spray/Global.numberOfCoins)
+	var spray = rng.randi_range(-attack_spray, attack_spray)
 	
 	var bullet = Bullet.instance()
 	bullet.global_position = global_position

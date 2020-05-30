@@ -29,23 +29,23 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/Actors/Enemy.gd"
 }, {
-"base": "Position2D",
-"class": "Gun",
-"language": "GDScript",
-"path": "res://src/Actors/Gun.gd"
-}, {
 "base": "Actor",
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/Actors/Player.gd"
+}, {
+"base": "Position2D",
+"class": "Spell_Caster",
+"language": "GDScript",
+"path": "res://src/Actors/Spell_Caster.gd"
 } ]
 _global_script_class_icons={
 "Actor": "",
 "Bullet": "",
 "Coin": "",
 "Enemy": "",
-"Gun": "",
-"Player": ""
+"Player": "",
+"Spell_Caster": ""
 }
 
 [application]
@@ -64,8 +64,8 @@ target_fps="60"
 
 [autoload]
 
-Global="*res://src/Singletons/Global.gd"
-GlobalSpells="*res://src/Singletons/Global_Spells.gd"
+PauseMenu="*res://src/UserInterface/PauseMenu.gd"
+SpellEnums="*res://src/Globals/Spells/Spell_Enums.gd"
 
 [debug]
 

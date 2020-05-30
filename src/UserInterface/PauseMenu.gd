@@ -20,6 +20,8 @@ onready var _materials_button = $HBoxContainer/MaterialsButton
 onready var _crafting_button = $HBoxContainer/CraftingButton
 onready var _system_button = $HBoxContainer/SystemButton
 
+#onready var _spells_menu_spells = $"res://src/Spells/SpellsMenu_Spells"
+
 var openMenu = 0;
 
 # Called when the node enters the scene tree for the first time.

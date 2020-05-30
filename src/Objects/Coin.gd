@@ -11,6 +11,6 @@ onready var animation_player = $AnimationPlayer
 # The animation takes cares of making the coin disappear, but also deactivates its
 # collisions and frees it from memory, saving us from writing more complex code.
 # Click the AnimationPlayer node to see the animation timeline.
-func _on_body_entered(_body):
-	Global.numberOfCoins += 1
-	animation_player.play("picked")
+#func _on_body_entered(_body):
+#	Global.numberOfCoins += 1
+	#animation_player.play("picked")
