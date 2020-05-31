@@ -64,7 +64,7 @@ func _signal_Handler(_signal):
 			signaled_spell = Spells.spell_1
 			#spell_name.set_bbcode("[tornado radius=5 freq=5]Thamz smells[/tornado]")
 			#spell_description.set_bbcode("[shake rate=20 level=10]Oh lawd he do be smelling[/shake]")
-			signaled_spell.set_all_spell_parameters(["Ultima",1000,10000,1000,0,0,150,null,null,null,null,null,50,500,10,2,1,SpellEnums.Directions.UP,1,null,null,SpellEnums.DamageTypes.ULTIMA,null,SpellEnums.Targets.ENEMY,null])
+			signaled_spell.set_all_spell_parameters(["Ultima",1000,10000,1000,0,0,150,null,null,null,null,null,50,500,10,2,1,SpellEnums.Directions.UP,1,null,null,[SpellEnums.DamageTypes.ULTIMA, SpellEnums.DamageTypes.ULTIMA],null,SpellEnums.Targets.HOSTILE,null])
 			#spell_description.set_bbcode(Spells.spell_1.get_description())
 			#Spells.spell_1.spell_name = "Hi"
 			#print(Spells.spell_1.spell_name)

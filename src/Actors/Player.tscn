@@ -1,13 +1,11 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/robot_demo.png" type="Texture" id=2]
 [ext_resource path="res://assets/audio/sfx/jump.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/audio/sfx/shoot.wav" type="AudioStream" id=4]
-[ext_resource path="res://assets/art/ui/touch_button_left.png" type="Texture" id=5]
-[ext_resource path="res://assets/art/ui/touch_button_right.png" type="Texture" id=6]
-[ext_resource path="res://assets/art/ui/touch_button_jump.png" type="Texture" id=7]
-[ext_resource path="res://assets/art/ui/touch_button_fire.png" type="Texture" id=8]
+[ext_resource path="res://src/UserInterface/PauseMenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UserInterface/IngameUI/IngameUI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Actors/Spell_Caster.gd" type="Script" id=9]
 
 [sub_resource type="Animation" id=1]
@@ -247,34 +245,10 @@ shape = SubResource( 11 )
 stream = ExtResource( 3 )
 
 [node name="UI" type="CanvasLayer" parent="."]
-layer = 0
 
-[node name="Left" type="TouchScreenButton" parent="UI"]
-position = Vector2( 27.7593, 360.87 )
-scale = Vector2( 1.49157, 1.46265 )
-normal = ExtResource( 5 )
-passby_press = true
-action = "move_left"
-visibility_mode = 1
+[node name="InterfaceLayer" type="CanvasLayer" parent="."]
+layer = 100
 
-[node name="Right" type="TouchScreenButton" parent="UI"]
-position = Vector2( 121.542, 361.415 )
-scale = Vector2( 1.49157, 1.46265 )
-normal = ExtResource( 6 )
-passby_press = true
-action = "move_right"
-visibility_mode = 1
+[node name="IngameUI" parent="InterfaceLayer" instance=ExtResource( 6 )]
 
-[node name="Jump" type="TouchScreenButton" parent="UI"]
-position = Vector2( 666.224, 359.02 )
-scale = Vector2( 1.49157, 1.46265 )
-normal = ExtResource( 7 )
-action = "jump"
-visibility_mode = 1
-
-[node name="Fire" type="TouchScreenButton" parent="UI"]
-position = Vector2( 668.073, 262.788 )
-scale = Vector2( 1.49157, 1.46265 )
-normal = ExtResource( 8 )
-action = "shoot"
-visibility_mode = 1
+[node name="PauseMenu" parent="InterfaceLayer" instance=ExtResource( 5 )]

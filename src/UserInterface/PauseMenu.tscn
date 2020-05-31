@@ -40,10 +40,6 @@ __meta__ = {
 [node name="CraftingMenu" parent="." instance=ExtResource( 8 )]
 
 [node name="SystemMenu" parent="." instance=ExtResource( 5 )]
-margin_left = 1.16632
-margin_top = -0.857376
-margin_right = 1.16632
-margin_bottom = -0.857361
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_left = 0.06

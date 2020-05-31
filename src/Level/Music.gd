@@ -14,3 +14,11 @@ func _ready():
 	else:
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), base_volume_db)
 		volume_db = 0
+
+func _input(event):
+	if event.is_action_pressed("toggle_pause"):
+		var tree = get_tree()
+		if tree.paused:
+			self.volume_db = self.volume_db + 15
+		else:
+			self.volume_db = self.volume_db - 15

@@ -1,20 +1,6 @@
 extends Node
 
 
-#enum Targets {FRIENDLY, ENEMY, RANDOM}
-#enum Enhancements {STRENGTH_UP, STRENGTH_DOWN, DEFENSE_UP, DEFENSE_DOWN, SPEED_UP, 
-#	SPEED_DOWN, SIZE_UP, SIZE_DOWN, JUMP_UP, JUMP_DOWN, POISON, ACID, SLOW, BLIND, 
-#	SILENCE, CHARM, CONFUSION, LIFESTEAL, DAMAGE_OVER_TIME, HEAL, SHIELD, BUFF, DEBUFF,
-#	RANDOM}
-#enum DamageTypes {NORMAL, FIRE, WATER, ICE, ELECTRICITY, EARTH, WIND, DARK, LIGHT, 
-#	ANTI, ULTIMA, RANDOM}
-#enum AoeTypes {SQUARE, CIRCLE, TRIANGLE, PENTAGON, CONE, CRESCENT, SINGLES, RANDOM}
-#enum Directions {FRONT, DOWN_FRONT, DOWN, DOWN_BACK, BACK, UP_BACK, UP, UP_FRONT,
-#	RANDOM}
-#enum Effects {CIRCLING, HOMING, BOUNCING, REFLECTING, PIERCING, STICKY, RETURNING, 
-#	EXPLOSIVE, TRAP, EXPANDING, SHRINKING, SHOTGUN, RANDOM}
-
-
 var spell_name = ""
 var current_mana = 0
 var max_mana = 0
@@ -44,6 +30,14 @@ var spell_effects = []
 var spell_description = ""
 
 var spell_parameters = []
+
+
+var white = "[color=white]"
+var blue = "[color=#5188e0]"
+var yellow = "[color=#f5f538]"
+var orange = "[color=#dbb251]"
+var red = "[color=#bf4a3d]"
+var color = "[/color]"
 
 
 #Add all the function parameters so it actually sets this stuff
@@ -77,15 +71,6 @@ func set_all_spell_parameters(parameters):
 	spell_effects = parameters[24]
 	
 	spell_description = _set_description()
-
-var white = "[color=white]"
-var blue = "[color=#5188e0]"
-var yellow = "[color=#f5f538]"
-var orange = "[color=#dbb251]"
-var red = "[color=#bf4a3d]"
-var color = "[/color]"
-var start = "[indent]"
-var end = "[/indent]\r\n"
 
 
 func _set_description():
@@ -261,9 +246,29 @@ func _color_decider(p):
 	elif p == "spell_direction":
 		ret = "Cast direction: "
 		dir = 0
+		match get(p):
+			0:
+				p = "Front"
+			1:
+				p = "Front-Down"
+			2:
+				p = "Down"
+			3:
+				p = "Down-Back"
+			4:
+				p = "Back"
+			5:
+				p = "Up-Back"
+			6:
+				p = "Up"
+			7:
+				p = "Up-Front"
+			8:
+				p = "Random"
 	elif p == "projectile_amount":
 		ret = "Number of Projectiles: "
-		dir = 0
+		dir = 1
+		blue_decider = 0
 	elif p == "aoe_size":
 		ret = "AOE size: "
 		dir = 1
@@ -274,19 +279,196 @@ func _color_decider(p):
 	elif p == "aoe_type":
 		ret = "AOE type: "
 		dir = 0
+		match get(p):
+			0:
+				p = "Square"
+			1:
+				p = "Circle"
+			2:
+				p = "Triangle"
+			3:
+				p = "Pentagon"
+			4:
+				p = "Cone"
+			5:
+				p = "Crescent"
+			6:
+				p = "Singles"
+			7:
+				p = "Random"
 	elif p == "damage_types":
-		ret = "Damage type: "
+		ret = "Damage types: "
 		dir = 0
+		var new_p = []
+		
+		for n in get(p):
+			match n:
+				0:
+					new_p.append("Normal")
+				1:
+					new_p.append("Fire")
+				2:
+					new_p.append("Water")
+				3:
+					new_p.append("Ice")
+				4:
+					new_p.append("Electricity")
+				5:
+					new_p.append("Earth")
+				6:
+					new_p.append("Wind")
+				7:
+					new_p.append("Dark")
+				9:
+					new_p.append("Light")
+				10:
+					new_p.append("Anti")
+				11:
+					new_p.append("Ultima")
+				12:
+					new_p.append("Heal")
+				13:
+					new_p.append("Shield")
+				14:
+					new_p.append("Random")
+		
+		if new_p.size() > 1:
+			var r = "["
+			for n in range(new_p.size()):
+				if n == new_p.size()-1:
+					r += new_p[n]
+				else:
+					r += new_p[n] + ", "
+			p = r + "]"
+		else:
+			p = new_p[0]
 	elif p == "enhancements":
 		ret = "Enhancements: "
 		dir = 0
+		var new_p = []
+		
+		for n in get(p):
+			match n:
+				0:
+					new_p.append("Strength Up")
+				1:
+					new_p.append("Strength Down")
+				2:
+					new_p.append("Defense Up")
+				3:
+					new_p.append("Defense Down")
+				4:
+					new_p.append("Speed Up")
+				5:
+					new_p.append("Speed Down")
+				6:
+					new_p.append("Size Up")
+				7:
+					new_p.append("Size Down")
+				9:
+					new_p.append("Jump Up")
+				10:
+					new_p.append("Jump Down")
+				11:
+					new_p.append("Poison")
+				12:
+					new_p.append("Acid")
+				13:
+					new_p.append("Slow")
+				14:
+					new_p.append("Blind")
+				15:
+					new_p.append("Silence")
+				16:
+					new_p.append("Charm")
+				17:
+					new_p.append("Confusion")
+				18:
+					new_p.append("Lifesteal")
+				19:
+					new_p.append("Damage over time")
+				20:
+					new_p.append("Random")
+		
+		if new_p.size() > 1:
+			var r = "["
+			for n in range(new_p.size()):
+				if n == new_p.size()-1:
+					r += new_p[n]
+				else:
+					r += new_p[n] + ", "
+			p = r + "]"
+		else:
+			p = new_p[0]
 	elif p == "spell_targets":
 		ret = "Targets: "
 		dir = 0
+		var new_p = []
+		
+		for n in get(p):
+			match n:
+				0:
+					new_p.append("Friendly")
+				1:
+					new_p.append("Hostile")
+				2:
+					new_p.append("Random")
+		
+		if new_p.size() > 1:
+			var r = "["
+			for n in range(new_p.size()):
+				if n == new_p.size()-1:
+					r += new_p[n]
+				else:
+					r += new_p[n] + ", "
+			p = r + "]"
+		else:
+			p = new_p[0]
 	elif p == "spell_effects":
 		ret = "Effects: "
 		dir = 0
-	
+		var new_p = []
+		
+		for n in get(p):
+			match n:
+				0:
+					new_p.append("Circling")
+				1:
+					new_p.append("Homing")
+				2:
+					new_p.append("Bouncing")
+				3:
+					new_p.append("Reflecting")
+				4:
+					new_p.append("Piercing")
+				5:
+					new_p.append("Sticky")
+				6:
+					new_p.append("Returning")
+				7:
+					new_p.append("Explosive")
+				9:
+					new_p.append("Trap")
+				10:
+					new_p.append("Expanding")
+				11:
+					new_p.append("Shrinking")
+				12:
+					new_p.append("Spraying")
+				13:
+					new_p.append("Random")
+		
+		if new_p.size() > 1:
+			var r = "["
+			for n in range(new_p.size()):
+				if n == new_p.size()-1:
+					r += new_p[n]
+				else:
+					r += new_p[n] + ", "
+			p = r + "]"
+		else:
+			p = new_p[0]
+
 	if dir == 1:
 		if get(p) >= blue_decider:
 			ret += blue + str(get(p)) + color
@@ -306,7 +488,7 @@ func _color_decider(p):
 		elif get(p) <= red_decider:
 			ret += red + str(get(p)) + color
 	else:
-		ret += blue + str(get(p)) + color
+		ret += blue + str(p) + color
 	
 	if p == "current_mana":
 		ret += "/" + str(max_mana)

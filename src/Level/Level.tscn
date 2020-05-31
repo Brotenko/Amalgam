@@ -262,6 +262,7 @@ position = Vector2( 828.515, 77.262 )
 [node name="ParallaxBackground" parent="." instance=ExtResource( 7 )]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 8 )
 autoplay = true
 script = ExtResource( 9 )
