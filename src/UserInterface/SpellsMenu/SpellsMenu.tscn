@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/theme/dynamic_font_small.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/UserInterface/SpellsMenu/SpellsMenu.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://assets/art/coin/coin.png" type="Texture" id=4]
 [ext_resource path="res://assets/theme/dynamic_font_big.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=6]
 
 [node name="SpellsMenu" type="Control"]
 anchor_right = 1.0
@@ -226,7 +227,56 @@ custom_fonts/normal_font = ExtResource( 1 )
 bbcode_enabled = true
 bbcode_text = "The description goes here"
 text = "The description goes here"
-[connection signal="pressed" from="Slots_Container/Row_1/Slot_1" to="." method="_signal_Handler" flags=3 binds= [ 1 ]]
+
+[node name="Options" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 70, 90 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu_Background" type="ColorRect" parent="Options"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.235294, 0.235294, 0.235294, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu_Options" type="VBoxContainer" parent="Options"]
+margin_right = 70.0
+margin_bottom = 90.0
+theme = ExtResource( 6 )
+custom_constants/separation = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Equip_Button" type="Button" parent="Options/Menu_Options"]
+margin_right = 70.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Equip"
+
+[node name="Delete_Button" type="Button" parent="Options/Menu_Options"]
+margin_top = 31.0
+margin_right = 70.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Delete"
+
+[node name="Cancel_Button" type="Button" parent="Options/Menu_Options"]
+margin_top = 62.0
+margin_right = 70.0
+margin_bottom = 90.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Cancel"
+[connection signal="pressed" from="Slots_Container/Row_1/Slot_1" to="." method="_signal_Handler" binds= [ 1 ]]
 [connection signal="pressed" from="Slots_Container/Row_1/Slot_2" to="." method="_signal_Handler" binds= [ 2 ]]
 [connection signal="pressed" from="Slots_Container/Row_1/Slot_3" to="." method="_signal_Handler" binds= [ 3 ]]
 [connection signal="pressed" from="Slots_Container/Row_1/Slot_4" to="." method="_signal_Handler" binds= [ 4 ]]
@@ -242,3 +292,6 @@ text = "The description goes here"
 [connection signal="pressed" from="Slots_Container/Row_4/Slot_14" to="." method="_signal_Handler" binds= [ 14 ]]
 [connection signal="pressed" from="Slots_Container/Row_4/Slot_15" to="." method="_signal_Handler" binds= [ 15 ]]
 [connection signal="pressed" from="Slots_Container/Row_4/Slot_16" to="." method="_signal_Handler" binds= [ 16 ]]
+[connection signal="pressed" from="Options/Menu_Options/Equip_Button" to="." method="_options_signal_handler" binds= [ 1 ]]
+[connection signal="pressed" from="Options/Menu_Options/Delete_Button" to="." method="_options_signal_handler" binds= [ 2 ]]
+[connection signal="pressed" from="Options/Menu_Options/Cancel_Button" to="." method="_options_signal_handler" binds= [ 3 ]]

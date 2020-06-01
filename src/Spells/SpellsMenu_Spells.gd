@@ -2,6 +2,7 @@ extends Node
 
 
 const Spell = preload("res://src/Spells/Spell.gd")
+var active_spells = [null, null, null, null, null]
 
 var spell_1 = Spell.new()
 var spell_2 = Spell.new()
@@ -19,3 +20,6 @@ var spell_13 = Spell.new()
 var spell_14 = Spell.new()
 var spell_15 = Spell.new()
 var spell_16 = Spell.new()
+
+func set_active_spell(index, spell):
+	active_spells[index] = spell

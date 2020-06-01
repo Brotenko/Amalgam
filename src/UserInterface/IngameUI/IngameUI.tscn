@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/art/coin/coin.png" type="Texture" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://src/UserInterface/IngameUI/IngameUI.gd" type="Script" id=3]
 
 [node name="IngameUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -15,9 +17,10 @@ anchor_left = 0.068
 anchor_top = 0.576
 anchor_right = 0.113
 anchor_bottom = 0.656
-margin_top = -3.05176e-05
-margin_right = -0.799995
-margin_bottom = -0.450012
+margin_left = -40.2964
+margin_top = 136.322
+margin_right = -12.2964
+margin_bottom = 164.322
 rect_scale = Vector2( 0.56, 0.56 )
 focus_mode = 0
 enabled_focus_mode = 0
@@ -29,29 +32,38 @@ __meta__ = {
 }
 
 [node name="Slot_2" type="TextureButton" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 59.1586
+margin_top = 393.534
+margin_right = 99.1586
+margin_bottom = 433.534
 focus_mode = 0
 enabled_focus_mode = 0
 keep_pressed_outside = true
 
 [node name="Slot_3" type="TextureButton" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 114.03
+margin_top = 393.534
+margin_right = 154.03
+margin_bottom = 433.534
 focus_mode = 0
 enabled_focus_mode = 0
 keep_pressed_outside = true
 
 [node name="Slot_4" type="TextureButton" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 167.187
+margin_top = 388.389
+margin_right = 207.187
+margin_bottom = 428.389
 focus_mode = 0
 enabled_focus_mode = 0
 keep_pressed_outside = true
 
 [node name="Slot_5" type="TextureButton" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 216.058
+margin_top = 390.961
+margin_right = 256.058
+margin_bottom = 430.961
 focus_mode = 0
 enabled_focus_mode = 0
 keep_pressed_outside = true
+[connection signal="pressed" from="Slot_1" to="." method="_on_Slot_1_pressed"]

@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 
 # Declare member variables here. Examples:
@@ -14,3 +14,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Slot_1_pressed():
+	print(Spells.active_spells[0].get_description())
+	pass # Replace with function body.

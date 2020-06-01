@@ -6,6 +6,7 @@ extends Node
 # The "_" prefix is a convention to indicate that variables are private,
 # that is to say, another node or script should not access them.
 onready var _pause_menu = $InterfaceLayer/PauseMenu
+onready var _ingame_ui = $InterfaceLayer/IngameUI
 
 
 func _init():
@@ -32,10 +33,15 @@ func _input(event):
 	elif event.is_action_pressed("toggle_pause"):
 		var tree = get_tree()
 		tree.paused = not tree.paused
+		print(_ingame_ui)
 		if tree.paused:
+			_ingame_ui.visible = false
 			_pause_menu.open()
+			print(_ingame_ui.visible)
 		else:
+			_ingame_ui.visible = true
 			_pause_menu.close()
+			print(_ingame_ui.visible)
 		get_tree().set_input_as_handled()
 	
 	elif event.is_action_pressed("splitscreen"):

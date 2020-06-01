@@ -319,17 +319,17 @@ func _color_decider(p):
 					new_p.append("Wind")
 				7:
 					new_p.append("Dark")
-				9:
+				8:
 					new_p.append("Light")
-				10:
+				9:
 					new_p.append("Anti")
-				11:
+				10:
 					new_p.append("Ultima")
-				12:
+				11:
 					new_p.append("Heal")
-				13:
+				12:
 					new_p.append("Shield")
-				14:
+				13:
 					new_p.append("Random")
 		
 		if new_p.size() > 1:
@@ -365,29 +365,29 @@ func _color_decider(p):
 					new_p.append("Size Up")
 				7:
 					new_p.append("Size Down")
-				9:
+				8:
 					new_p.append("Jump Up")
-				10:
+				9:
 					new_p.append("Jump Down")
-				11:
+				10:
 					new_p.append("Poison")
-				12:
+				11:
 					new_p.append("Acid")
-				13:
+				12:
 					new_p.append("Slow")
-				14:
+				13:
 					new_p.append("Blind")
-				15:
+				14:
 					new_p.append("Silence")
-				16:
+				15:
 					new_p.append("Charm")
-				17:
+				16:
 					new_p.append("Confusion")
-				18:
+				17:
 					new_p.append("Lifesteal")
-				19:
+				18:
 					new_p.append("Damage over time")
-				20:
+				19:
 					new_p.append("Random")
 		
 		if new_p.size() > 1:

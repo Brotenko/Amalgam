@@ -1,6 +1,12 @@
 extends Control
 
 
+# TODO: 
+#	1) Extend option menu (which spell to equip, delete, confirmation dialogs)
+#	2) Make sprites of spells display ingame
+#	3) Make spells do shit
+
+
 onready var slot_1 = $Slots_Container/Row_1/Slot_1
 onready var slot_2 = $Slots_Container/Row_1/Slot_2
 onready var slot_3 = $Slots_Container/Row_1/Slot_3
@@ -23,16 +29,20 @@ slot_8, slot_9, slot_10, slot_11, slot_12, slot_13, slot_14, slot_15, slot_16]
 
 onready var spell_name = $DescriptionContainer/Spell_Name
 onready var spell_description = $DescriptionContainer/Spell_Description
+onready var options_menu = $Options
 
 
-const _spells_menu_spells = preload("res://src/Spells/SpellsMenu_Spells.gd")
-var Spells = _spells_menu_spells.new()
+#const _spells_menu_spells = preload("res://src/Spells/SpellsMenu_Spells.gd")
+#var Spells = _spells_menu_spells.new()
 
 
 const _empty_slot = preload("res://icon.png")
 const _focused_slot = preload("res://icon.png")
 const _hover_slot = preload("res://icon.png")
 const _pressed_slot = preload("res://icon.png")
+
+
+var _selected_spell
 
 
 func _ready():
@@ -62,47 +72,58 @@ func _signal_Handler(_signal):
 	match _signal:
 		1:
 			signaled_spell = Spells.spell_1
-			#spell_name.set_bbcode("[tornado radius=5 freq=5]Thamz smells[/tornado]")
-			#spell_description.set_bbcode("[shake rate=20 level=10]Oh lawd he do be smelling[/shake]")
 			signaled_spell.set_all_spell_parameters(["Ultima",1000,10000,1000,0,0,150,null,null,null,null,null,50,500,10,2,1,SpellEnums.Directions.UP,1,null,null,[SpellEnums.DamageTypes.ULTIMA, SpellEnums.DamageTypes.ULTIMA],null,SpellEnums.Targets.HOSTILE,null])
-			#spell_description.set_bbcode(Spells.spell_1.get_description())
-			#Spells.spell_1.spell_name = "Hi"
-			#print(Spells.spell_1.spell_name)
 		2:
 			signaled_spell = Spells.spell_2
-			#Spells.spell_2.spell_name = "Hi2"
-			#print(Spells.spell_2.spell_name)
 		3:
-			print(_signal)
+			signaled_spell = Spells.spell_3
 		4:
-			print(_signal)
+			signaled_spell = Spells.spell_4
 		5:
-			print(_signal)
+			signaled_spell = Spells.spell_5
 		6:
-			print(_signal)
+			signaled_spell = Spells.spell_6
 		7:
-			print(_signal)
+			signaled_spell = Spells.spell_7
 		8:
-			print(_signal)
+			signaled_spell = Spells.spell_8
 		9:
-			print(_signal)
+			signaled_spell = Spells.spell_9
 		10:
-			print(_signal)
+			signaled_spell = Spells.spell_10
 		11:
-			print(_signal)
+			signaled_spell = Spells.spell_11
 		12:
-			print(_signal)
+			signaled_spell = Spells.spell_12
 		13:
-			print(_signal)
+			signaled_spell = Spells.spell_13
 		14:
-			print(_signal)
+			signaled_spell = Spells.spell_14
 		15:
-			print(_signal)
+			signaled_spell = Spells.spell_15
 		16:
-			print(_signal)
+			signaled_spell = Spells.spell_16
 	
 	spell_name.set_bbcode(signaled_spell.get_name())
 	spell_description.set_bbcode(signaled_spell.get_description())
-	#print(Spells.spell_1.spell_name)
-	#print(Spells.spell_1.spell_description)
+	_show_options_menu(_signal, signaled_spell)
 
+func _show_options_menu(slot, spell):
+	var selected_slot = "Slot_" + str(slot)
+	for n in slot_array:
+		if str(n.name) == selected_slot:
+			selected_slot = n
+			break
+	#var pos = Vector2(selected_slot.get_global_position().x, selected_slot.get_global_position().y)
+	_selected_spell = spell
+	options_menu.set_position(selected_slot.get_global_position())
+	options_menu.visible = true
+
+func _options_signal_handler(_signal):
+	match _signal:
+		1:
+			Spells.set_active_spell(0, _selected_spell)
+		2:
+			pass
+		3:
+			options_menu.visible = false
